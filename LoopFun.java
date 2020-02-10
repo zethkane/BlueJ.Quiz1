@@ -50,13 +50,18 @@ public class LoopFun
        * @return the encrypted string by shifting each character by three character
        */
       public String encrypt(String word) {
-          
-            
           String result = "";
-          for (char c : word.toCharArray())
+          int shift = 3;
+          int len = word.length();
+          for( int i = 0; i < len; i++)
           {
-             result += (char) (c + 3);
-            }
-          return result;
+            char c = (char)(word.charAt(i) + shift);
+            if (c > 'z'){
+                result += (char)(word.charAt(i) - (26- shift));
+            }else{
+                result += (char)(word.charAt(i) + shift);}
+             
+            }return result;
+          
       }
-    }
+}
